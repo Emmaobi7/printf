@@ -8,11 +8,6 @@
  */
 
 
-
-
-
-
-
 int _printf(const char *format, ...)
 {
 	specifier all[] = {
@@ -20,19 +15,20 @@ int _printf(const char *format, ...)
 		{"%s", print_s}
 	};
 
-	int i;
+	unsigned int i;
 	va_list args;
+	va_start(args, format);
 	
-	i = 0;
-	while (format[i] != '\0')
+	for (i = 0; format[i]; i++)
 	{
-		if (*format == *(all[i].p))
+		if (format[i] == *(all[i].p))
 		{
 			all[i].f(args);
 		}
-		i++;
 	}
+
 	va_end(args);
+	printf("\n");
 	return (0);
 }
 
