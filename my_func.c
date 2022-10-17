@@ -17,18 +17,20 @@
 int print_s(va_list s)
 {
 	char *ptr;
+	int i;
 
 	ptr = va_arg(s, char *);
 
 	if (ptr == NULL)
 		ptr = "(nil)";
 
-	while (*ptr != '\0')
+	i = 0;
+	while (ptr[i] != '\0')
 	{
-		write(1, &ptr, 1);
-		ptr++;
+		putchar(ptr[i]);
+		i++;
 	}
-	return (0);
+	return (i);
 }
 
 
@@ -41,7 +43,9 @@ int print_s(va_list s)
 int print_c(va_list c)
 {
 	char p;
-	p = va_arg(c, int);
+	p =va_arg(c, int);
+	putchar(p);
 
-	return (write(1, &c, 1));
+	return(1);
+
 }
