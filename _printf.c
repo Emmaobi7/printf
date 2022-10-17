@@ -22,6 +22,7 @@ int _printf(const char *format, ...)
 
 	int i;
 	va_list args;
+	va_start(args, format);
 	
 	i = 0;
 	while (format[i] != '\0')
@@ -33,6 +34,6 @@ int _printf(const char *format, ...)
 		i++;
 	}
 	va_end(args);
-	return (0);
+	return (1);
 }
 
